@@ -14,3 +14,24 @@ body {
   background-color: yellow;
   transform: scaleX(5);
 }
+
+.planet {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: red;
+  transform: scaleX(0.2);
+  /* overrides the stretch from the container div transform */
+}
+
+#planet-1 {
+  background-color: blue;
+}
+
+#planet-2 {
+  background-color: red;
+}
+
+#planet-3 {
+  background-color: green;
+}
