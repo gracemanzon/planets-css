@@ -39,16 +39,109 @@ body {
   /* ^ overrides the stretch from the container div transform */
 }
 
+.planet:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
 #planet-1 {
-  background-color: blue;
+  animation: planetRender1 12s infinite linear;
+}
+
+#planet-1:after {
+  background-color: #25258d;
+  animation: planetRenderRotater1 12s infinite linear;
+}
+
+@keyframes planetRender1 {
+  0% {
+    background: linear-gradient(-90deg, rgb(86, 86, 253) 50%, rgb(60, 60, 175) 50%);
+  }
+  12% {
+    background: linear-gradient(-90deg, rgb(86, 86, 253) 50%, rgb(60, 60, 175) 50%);
+  }
+  12.1% {
+    background: linear-gradient(90deg, rgb(86, 86, 253) 50%, rgb(60, 60, 175) 50%);
+  }
+  62% {
+    background: linear-gradient(90deg, rgb(86, 86, 253) 50%, rgb(60, 60, 175) 50%);
+  }
+  62.1% {
+    background: linear-gradient(-90deg, rgb(86, 86, 253) 50%, rgb(60, 60, 175) 50%);
+  }
+  100% {
+    background: linear-gradient(-90deg, rgb(86, 86, 253) 50%, rgb(60, 60, 175) 50%);
+  }
+}
+
+@keyframes planetRenderRotater1 {
+  0% {
+    transform: scaleX(-0.2);
+    background-color: rgb(86, 86, 253);
+  }
+
+  12% {
+    transform: scaleX(-1);
+    background-color: rgb(86, 86, 253);
+  }
+  12.1% {
+    transform: scaleX(1);
+    background-color: rgb(86, 86, 253);
+  }
+
+  37% {
+    transform: scaleX(0);
+    background-color: rgb(86, 86, 253);
+  }
+  37.1% {
+    transform: scaleX(0);
+    background-color: rgb(60, 60, 175);
+  }
+
+  62% {
+    transform: scaleX(-1);
+    background-color: rgb(60, 60, 175);
+  }
+  62.1% {
+    transform: scaleX(1);
+    background-color: rgb(60, 60, 175);
+  }
+
+  87% {
+    transform: scaleX(0);
+    background-color: rgb(60, 60, 175);
+  }
+  87.1% {
+    transform: scaleX(0);
+    background-color: rgb(86, 86, 253);
+  }
+
+  100% {
+    transform: scaleX(-0.2);
+    background-color: rgb(86, 86, 253);
+  }
 }
 
 #planet-2 {
   background-color: red;
+  animation: planetRender2 12s infinite linear;
+}
+
+#planet-2:after {
+  /* background-color: #25258d; */
+  animation: planetRenderRotater2 12s infinite linear;
 }
 
 #planet-3 {
   background-color: green;
+  animation: planetRender3 12s infinite linear;
+}
+
+#planet-3:after {
+  /* background-color: #25258d; */
+  animation: planetRenderRotater3 12s infinite linear;
 }
 
 .route {
@@ -120,35 +213,50 @@ body {
 @keyframes hidePlanet1 {
   0% {
     z-index: 999;
+    transform: scale(0.8);
   }
-  25% {
+  12% {
     z-index: -999;
+    transform: scale(0.8);
+  }
+  75% {
+    transform: scale(1.2);
   }
   100% {
     z-index: 999;
+    transform: scale(0.8);
   }
 }
 
 @keyframes hidePlanet2 {
   0% {
     z-index: -999;
+    transform: scale(0.95);
   }
-  60% {
+  50% {
     z-index: 999;
+    transform: scale(1.2);
+  }
+  90% {
+    transform: scale(0.9);
   }
   100% {
     z-index: -999;
+    transform: scale(0.95);
   }
 }
 
 @keyframes hidePlanet3 {
   0% {
     z-index: 999;
+    transform: scale(1.2);
   }
   50% {
     z-index: -999;
+    transform: scale(0.8);
   }
   100% {
     z-index: 999;
+    transform: scale(1.2);
   }
 }
