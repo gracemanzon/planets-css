@@ -336,18 +336,18 @@ body {
 @keyframes hidePlanet2 {
   0% {
     z-index: -999;
-    transform: scale(0.95);
+    transform: scale(0.8);
   }
   50% {
     z-index: 999;
-    transform: scale(1.4);
+    transform: scale(1.3);
   }
-  90% {
-    transform: scale(0.8);
-  }
+  /* 90% {
+    transform: scale(1.2);
+  } */
   100% {
     z-index: -999;
-    transform: scale(0.95);
+    transform: scale(0.8);
   }
 }
 
