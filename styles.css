@@ -21,7 +21,7 @@ body {
   border-radius: 50%;
   background-color: red;
   transform: scaleX(0.2);
-  /* overrides the stretch from the container div transform */
+  /* ^ overrides the stretch from the container div transform */
 }
 
 #planet-1 {
@@ -34,4 +34,41 @@ body {
 
 #planet-3 {
   background-color: green;
+}
+
+.route {
+  width: 100%;
+  height: 100%;
+  /* ^ makes it the same dimensions as the parent container  */
+  animation: rotate 12s infinite linear;
+  /* ^ calls animation below with @keyframes definition */
+  position: absolute;
+  /* ^ stacks planets on same line  */
+}
+
+.planet-container {
+  width: 60px;
+  height: 60px;
+  /* ^ keeps planet path in to full parent container  */
+  animation: correct 12s infinite linear;
+  /* ^ counters the stretched transformation that happens in the route container  */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+  /* ^ 0% is the starting point of the 12s duration indicated above, 100% is the end point */
+}
+
+@keyframes correct {
+  0% {
+    transform: rotateZ(360deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
 }
