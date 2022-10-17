@@ -5,14 +5,29 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: rgb(31, 25, 38);
 }
 
 .planets-container {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: yellow;
+  /* background-color: yellow; */
   transform: scaleX(5);
+  /* ^ applies ot children and needs to be overriden  */
+}
+
+.sun {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: rgb(248, 224, 163);
+  box-shadow: 0 0 60px rgb(253, 203, 163), 0 0 98px rgb(184, 160, 26);
+  /* ^ simulates the corona effect  */
+  transform: scaleX(0.2);
+  /* ^ overrides the stretch from the container div transform */
+  position: absolute;
+  /* ^ overrides stacking effect of the sun and planets because they're on the same line  */
 }
 
 .planet {
@@ -43,7 +58,7 @@ body {
   animation: rotate 12s infinite linear;
   /* ^ calls animation below with @keyframes definition */
   position: absolute;
-  /* ^ stacks planets on same line  */
+  /* ^ overrides stacking effect of the planets because they're on the same line  */
 }
 
 .planet-container {
@@ -52,6 +67,35 @@ body {
   /* ^ keeps planet path in to full parent container  */
   animation: correct 12s infinite linear;
   /* ^ counters the stretched transformation that happens in the route container  */
+  position: absolute;
+}
+
+#planet-container-2 {
+  left: 85px;
+}
+
+#planet-container-3 {
+  left: 42.5px;
+  top: 100px;
+}
+/* ^ both of these ids help differientate some spacing between the planets  */
+
+.planet-index {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#planet-index-1 {
+  animation: hidePlanet1 12s infinite;
+}
+
+#planet-index-2 {
+  animation: hidePlanet2 12s infinite;
+}
+
+#planet-index-3 {
+  animation: hidePlanet3 12s infinite;
 }
 
 @keyframes rotate {
@@ -70,5 +114,41 @@ body {
   }
   100% {
     transform: rotateZ(0deg);
+  }
+}
+
+@keyframes hidePlanet1 {
+  0% {
+    z-index: 999;
+  }
+  25% {
+    z-index: -999;
+  }
+  100% {
+    z-index: 999;
+  }
+}
+
+@keyframes hidePlanet2 {
+  0% {
+    z-index: -999;
+  }
+  60% {
+    z-index: 999;
+  }
+  100% {
+    z-index: -999;
+  }
+}
+
+@keyframes hidePlanet3 {
+  0% {
+    z-index: 999;
+  }
+  50% {
+    z-index: -999;
+  }
+  100% {
+    z-index: 999;
   }
 }
